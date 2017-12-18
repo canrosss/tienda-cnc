@@ -7,4 +7,11 @@ class PagesController < ApplicationController
 
   def contact
   end
+
+  def product
+  end
+
+  def login
+  end
+
 end

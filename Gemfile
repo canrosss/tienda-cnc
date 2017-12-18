@@ -14,7 +14,12 @@ gem 'sqlite3'
 gem 'puma', '~> 3.7'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
-gem 'bootstrap-sass'
+#gem 'bootstrap-sass', '3.2.0.2'
+gem 'bootstrap', '~> 4.0.0.beta2.1'
+gem 'sprockets-rails', '~> 2.3.2'
+
+gem 'holder_rails'
+
 gem 'bootstrap-will_paginate'
 gem 'jquery-rails'
 # Use Uglifier as compressor for JavaScript assets
