@@ -1,0 +1,158 @@
+
+
+Tabla category
++-------------------------+
+| id | name | description |
++-------------------------+
+
+Tabla products
+
++----------------------------------------------------------------------------------------------------+
+| id | category_id:integer | name | summary | description | body | image1 | image2 | image3 | image4 |
++----------------------------------------------------------------------------------------------------+
+
+rails g model product category_id:integer name:string summary:text description:text body:text image1:string image2:string image3:string image4:string
+
+TO DO
+
+Crear vista de productos
+Dar de alta los productos y los enlaces
+
+Listar en el nav todas categorias y dentro todos los productos pertenecientes
+a la categoria
+
+Crear una tabla users
+Crear login
+Crear y restringir vistas (MODO ADMIN)
+
+
+⬤ [/home/canros/Proyectos/udemy/Rails/rails_projects/tienda-cnc]  rbenv gemset active                                                                                                                                                                                                             22:22:29  ☁  productos ☂ ✭
+rails_projects global
+⬤ [/home/canros/Proyectos/udemy/Rails/rails_projects/tienda-cnc]  ll                                                                                                                                                                                                                              22:22:34  ☁  productos ☂ ✭
+total 72
+-rw-rw-r--  1 canros canros  387 dic 17 22:55 README.md
+-rw-rw-r--  1 canros canros  227 dic 17 22:55 Rakefile
+-rw-rw-r--  1 canros canros   68 dic 17 22:55 package.json
+drwxrwxr-x  4 canros canros 4096 dic 17 22:55 lib
+drwxrwxr-x  2 canros canros 4096 dic 17 22:55 db
+-rw-rw-r--  1 canros canros  130 dic 17 22:55 config.ru
+drwxrwxr-x  2 canros canros 4096 dic 17 22:55 bin
+drwxrwxr-x 10 canros canros 4096 dic 17 22:55 app
+drwxrwxr-x  2 canros canros 4096 dic 17 22:55 vendor
+drwxrwxr-x  9 canros canros 4096 dic 17 22:55 test
+drwxrwxr-x  2 canros canros 4096 dic 17 22:55 log
+drwxrwxr-x  5 canros canros 4096 dic 17 22:55 tmp
+drwxrwxr-x  5 canros canros 4096 dic 17 22:57 config
+drwxrwxr-x  3 canros canros 4096 dic 18 01:33 public
+-rw-rw-r--  1 canros canros 2170 dic 18 02:23 Gemfile
+-rw-rw-r--  1 canros canros 5503 dic 18 02:23 Gemfile.lock
+drwxr-xr-x  2 canros canros 4096 dic 18 21:50 notas
+⬤ [/home/canros/Proyectos/udemy/Rails/rails_projects/tienda-cnc]  rails g model category name description                                                                                                                                                                                         22:22:37  ☁  productos ☂ ✭
+Running via Spring preloader in process 21428
+      invoke  active_record
+      create    db/migrate/20171219042308_create_categories.rb
+      create    app/models/category.rb
+      invoke    test_unit
+      create      test/models/category_test.rb
+      create      test/fixtures/categories.yml
+⬤ [/home/canros/Proyectos/udemy/Rails/rails_projects/tienda-cnc]  rails g model product name description                                                                                                                                                                                          22:23:08  ☁  productos ☂ ✭
+⬤ [/home/canros/Proyectos/udemy/Rails/rails_projects/tienda-cnc]  rails db:reset                                                                                                                                                                                                                  22:23:26  ☁  productos ☂ ✭
+Dropped database 'db/development.sqlite3'
+Database 'db/test.sqlite3' does not exist
+Created database 'db/development.sqlite3'
+Created database 'db/test.sqlite3'
+/home/canros/Proyectos/udemy/Rails/rails_projects/tienda-cnc/db/schema.rb doesn't exist yet. Run `rails db:migrate` to create it, then try again. If you do not intend to use a database, you should instead alter /home/canros/Proyectos/udemy/Rails/rails_projects/tienda-cnc/config/application.rb to limit the frameworks that will be loaded.
+⬤ [/home/canros/Proyectos/udemy/Rails/rails_projects/tienda-cnc]  rm db/migrate/20171219042308_create_categories.rb                                                                                                                                                                               22:23:32  ☁  productos ☂ ✭
+⬤ [/home/canros/Proyectos/udemy/Rails/rails_projects/tienda-cnc]  rm app/models/category.rb                                                                                                                                                                                                       22:23:55  ☁  productos ☂ ✭
+⬤ [/home/canros/Proyectos/udemy/Rails/rails_projects/tienda-cnc]  rm test/models/category_test.rb                                                                                                                                                                                                 22:23:58  ☁  productos ☂ ✭
+⬤ [/home/canros/Proyectos/udemy/Rails/rails_projects/tienda-cnc]  rm test/fixtures/categories.yml                                                                                                                                                                                                 22:24:02  ☁  productos ☂ ✭
+⬤ [/home/canros/Proyectos/udemy/Rails/rails_projects/tienda-cnc]  rails g model categories name description                                                                                                                                                                                       22:24:06  ☁  productos ☂ ✭
+Running via Spring preloader in process 22496
+[WARNING] The model name 'categories' was recognized as a plural, using the singular 'category' instead. Override with --force-plural or setup custom inflection rules for this noun before running the generator.
+      invoke  active_record
+      create    db/migrate/20171219042511_create_categories.rb
+      create    app/models/category.rb
+      invoke    test_unit
+      create      test/models/category_test.rb
+      create      test/fixtures/categories.yml
+⬤ [/home/canros/Proyectos/udemy/Rails/rails_projects/tienda-cnc]  rm db/migrate/20171219042511_create_categories.rb                                                                                                                                                                               22:25:11  ☁  productos ☂ ✭
+⬤ [/home/canros/Proyectos/udemy/Rails/rails_projects/tienda-cnc]  rm app/models/category.rb                                                                                                                                                                                                       22:25:24  ☁  productos ☂ ✭
+⬤ [/home/canros/Proyectos/udemy/Rails/rails_projects/tienda-cnc]  rm test/models/category_test.rb                                                                                                                                                                                                 22:25:28  ☁  productos ☂ ✭
+⬤ [/home/canros/Proyectos/udemy/Rails/rails_projects/tienda-cnc]  rm test/fixtures/categories.yml                                                                                                                                                                                                 22:25:35  ☁  productos ☂ ✭
+⬤ [/home/canros/Proyectos/udemy/Rails/rails_projects/tienda-cnc]  rails g model category name description                                                                                                                                                                                         22:25:39  ☁  productos ☂ ✭
+Running via Spring preloader in process 23086
+      invoke  active_record
+      create    db/migrate/20171219042549_create_categories.rb
+      create    app/models/category.rb
+      invoke    test_unit
+      create      test/models/category_test.rb
+      create      test/fixtures/categories.yml
+⬤ [/home/canros/Proyectos/udemy/Rails/rails_projects/tienda-cnc]  rails g model product category_id:integer name:string summary:text description:text body:text image1:string image2:string image3:string image4:string                                                                           22:25:49  ☁  productos ☂ ✭
+Running via Spring preloader in process 23459
+      invoke  active_record
+      create    db/migrate/20171219042748_create_products.rb
+      create    app/models/product.rb
+      invoke    test_unit
+      create      test/models/product_test.rb
+      create      test/fixtures/products.yml
+⬤ [/home/canros/Proyectos/udemy/Rails/rails_projects/tienda-cnc]  rails db:migrate                                                                                                                                                                                                                22:27:48  ☁  productos ☂ ✭
+   (0.1ms)  SELECT sqlite_version(*)
+   (19.0ms)  CREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)
+   (12.6ms)  CREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)
+   (0.2ms)  SELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC
+Migrating to CreateCategories (20171219042549)
+   (0.1ms)  begin transaction
+== 20171219042549 CreateCategories: migrating =================================
+-- create_table(:categories)
+   (0.9ms)  CREATE TABLE "categories" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "description" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)
+   -> 0.0022s
+== 20171219042549 CreateCategories: migrated (0.0024s) ========================
+
+  SQL (0.1ms)  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20171219042549"]]
+   (9.4ms)  commit transaction
+Migrating to CreateProducts (20171219042748)
+   (0.1ms)  begin transaction
+== 20171219042748 CreateProducts: migrating ===================================
+-- create_table(:products)
+   (0.5ms)  CREATE TABLE "products" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "category_id" integer, "name" varchar, "summary" text, "description" text, "body" text, "image1" varchar, "image2" varchar, "image3" varchar, "image4" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)
+   -> 0.0021s
+== 20171219042748 CreateProducts: migrated (0.0022s) ==========================
+
+  SQL (0.2ms)  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20171219042748"]]
+   (9.7ms)  commit transaction
+  ActiveRecord::InternalMetadata Load (0.2ms)  SELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?  [["key", "environment"], ["LIMIT", 1]]
+   (0.1ms)  begin transaction
+  SQL (1.9ms)  INSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["key", "environment"], ["value", "development"], ["created_at", "2017-12-19 04:27:56.524299"], ["updated_at", "2017-12-19 04:27:56.524299"]]
+   (7.2ms)  commit transaction
+   (0.2ms)  SELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC
+⬤ [/home/canros/Proyectos/udemy/Rails/rails_projects/tienda-cnc]  rails g controller products                                                                                                                                                                                                     22:27:56  ☁  productos ☂ ✭
+Running via Spring preloader in process 27486
+      create  app/controllers/products_controller.rb
+      invoke  erb
+      create    app/views/products
+      invoke  test_unit
+      create    test/controllers/products_controller_test.rb
+      invoke  helper
+      create    app/helpers/products_helper.rb
+      invoke    test_unit
+      invoke  assets
+      invoke    coffee
+      create      app/assets/javascripts/products.coffee
+      invoke    scss
+      create      app/assets/stylesheets/products.scss
+⬤ [/home/canros/Proyectos/udemy/Rails/rails_projects/tienda-cnc]  rails g controller categories                                                                                                                                                                                                   23:02:46  ☁  productos ☂ ✭
+Running via Spring preloader in process 27803
+      create  app/controllers/categories_controller.rb
+      invoke  erb
+      create    app/views/categories
+      invoke  test_unit
+      create    test/controllers/categories_controller_test.rb
+      invoke  helper
+      create    app/helpers/categories_helper.rb
+      invoke    test_unit
+      invoke  assets
+      invoke    coffee
+      create      app/assets/javascripts/categories.coffee
+      invoke    scss
+      create      app/assets/stylesheets/categories.scss
+⬤ [/home/canros/Proyectos/udemy/Rails/rails_projects/tienda-cnc]                                                                   

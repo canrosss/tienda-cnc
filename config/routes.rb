@@ -2,7 +2,6 @@ Rails.application.routes.draw do
 
   get '/contact', to:'pages#contact'
   get '/about', to:'pages#about'
-  get '/product', to:'pages#product'
   get '/login', to:'pages#login'
 
   root :to => 'pages#home'

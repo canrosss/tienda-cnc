@@ -1,0 +1,60 @@
+<h1>Editando un producto existente</h1>
+<% if @product.errors.any? %>
+  <h2>Los siguientes errores impiden la creación del producto</h2>
+  <ul>
+    <% @product.errors.full_messages.each do |msg| %>
+      <li>
+        <%= msg %>
+      </li>
+    <% end %>
+  </ul>
+<% end %>
+
+<%= form_for @product do |f| %>
+  <p>
+    <%= f.label :name %> </br>
+    <%= f.text_field :name %> </br>
+  </p>
+
+  <p>
+    <%= f.label :summary %> </br>
+    <%= f.text_field :summary %> </br>
+  </p>
+
+  <p>
+    <%= f.label :description %> </br>
+    <%= f.text_field :description %> </br>
+  </p>
+
+  <p>
+    <%= f.label :body %> </br>
+    <%= f.text_field :body %> </br>
+  </p>
+
+  <p>
+    <%= f.label :image1 %> </br>
+    <%= f.text_field :image1 %> </br>
+  </p>
+
+  <p>
+    <%= f.label :image2 %> </br>
+    <%= f.text_field :image2 %> </br>
+  </p>
+
+  <p>
+    <%= f.label :image3 %> </br>
+    <%= f.text_field :image3 %> </br>
+  </p>
+
+  <p>
+    <%= f.label :image4 %> </br>
+    <%= f.text_field :image4 %> </br>
+  </p>
+
+      <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-8">
+          <%= f.submit(@product.new_record? ? "Añadir producto" : "Actualizar producto", class: 'btn btn-primary btn-lg') %>
+        </div>
+      </div>
+
+<% end %>

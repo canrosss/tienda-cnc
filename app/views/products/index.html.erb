@@ -1,0 +1,43 @@
+
+<div class="container marketing">
+    <h2>Lista de productos</h2>
+
+    <table class="table table-striped">
+      <thead>
+          <tr>
+            <th>Nombre</th>
+            <th>Descripción</th>
+          </tr>
+      </thead>
+      <% @product.each do |product| %>
+        <tr>
+          <td>
+            <p>
+               <%= product.name %>
+             </p>
+           </td>
+         <td>
+           <p>
+              <%= link_to 'Editar', edit_product_path(product)%>
+            </p>
+          </td>
+          <td>
+            <p>
+              <%= link_to 'Ver', product_path(product)%>
+            </p>
+          </td>
+          <td>
+            <p>
+              <%= link_to 'Borrar', product_path(product), method: :delete,data:{confirm:"¿Estas seguro?"}%>
+
+            </p>
+          </td>
+
+        </tr>
+       <% end %>
+    </table>
+            <p>
+              <%= link_to '[ Dar de alta nuevo productso ]', new_product_path %>
+            </p>
+</div>
+
