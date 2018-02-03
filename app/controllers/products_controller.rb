@@ -32,6 +32,8 @@ class ProductsController < ApplicationController
 
   def create
     @product = Product.new(product_params)
+    #Es para asegurar que cada producto creado tenga un usuario que es el primero de la tabla*
+    @product.user = User.first
     if @product.save
       flash[:notice] = "El producto fue añadido con éxito"
       redirect_to product_path(@product)
