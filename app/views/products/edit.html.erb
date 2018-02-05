@@ -1,5 +1,4 @@
 <h1>Editando un producto existente</h1>
-<div class="container marketing" style="margin-top: 10px">
       <% if @product.errors.any? %>
         <h2>Los siguientes errores impiden la creación del producto</h2>
         <ul>
@@ -11,7 +10,7 @@
         </ul>
       <% end %>
 
-      <%= form_for @product do |f| %>
+        <%= form_for @product, :html => {role: "form"}  do |f| %>
         <p>
           <%= f.label :name %> </br>
           <%= f.text_field :name %> </br>
@@ -59,4 +58,3 @@
             </div>
 
       <% end %>
-</div>

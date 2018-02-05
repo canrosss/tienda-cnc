@@ -1,0 +1,23 @@
+
+<div class="container">
+      <%= form_for :session, :html => {class: "form-signin", role: "form"}, url: login_path do |f| %>
+        <h2 class="form-signin-heading">Inicia Sesión</h2>
+          <%= f.label :email, :class=>"sr-only" %>
+          <%= f.text_field :email, placeholder: "Tu email", :class=>"form-control"%>
+          <%= f.label :password, :class=>"sr-only" %>
+          <%= f.password_field :password, placeholder: "password",  :class=>"form-control",  autocomplete: "on" %>
+            <div class="form-group">
+              <div class="checkbox">
+                  <label>
+                     <input type="checkbox" value="remember-me"> Recuerdame
+                  </label>
+              </div>
+
+              <div class="col-sm-offset-2 col-sm-8">
+                <%= f.submit "Entrar", class: 'btn btn-primary btn-lg btn-block' %>
+              </div>
+            </div>
+      <% end %>
+
+           <hr class="featurette-divider">
+           <!-- /END THE FEATURETTES -->
