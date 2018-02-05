@@ -5,12 +5,12 @@ class SessionsController < ApplicationController
 
   #Login
   def create
-    debugger
+#    debugger
     user = User.find_by(email: params[:session][:email].downcase)
     if user && user.authenticate(params[:session][:password])
       session[:user_id] = user.id
-      flash[:succes] = "Te has logeado exitosamente"
-      redirect_to users_path(user)
+      flash[:success] = "Te has logeado exitosamente"
+      redirect_to products_path()
     else
       flash.now[:danger] = "Hay algo mal con tu inicio de sesion"
       render 'new'
