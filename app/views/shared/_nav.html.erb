@@ -35,11 +35,34 @@
       <%= link_to "Contacto", contact_path, class: 'nav-link' %>
       </li>
 
+      <% if logged_in? %>
+      <li>
+        <%= link_to 'Logout', logout_path, class: 'nav-link', method: :delete %>
+      </li>
+      <% else %>
+      <li>
+        <%= link_to 'Inicia sesión', login_path, class: 'nav-link' %>
+      </li>
+      <% end %>
+
+      <% if logged_in? %>
+      <li>
+        <p> ESTAS LOGEADO :)</p>
+      </li>
+      <% else %>
+      <li>
+        <p> NO LOGEADO :)</p>
+      </li>
+      <% end %>
+
+
 
     </ul>
     <form class="form-inline my-2 my-lg-0">
+      <!--
       <input class="form-control mr-sm-2" type="search" placeholder="Todo a un clic de distancia" aria-label="Buscar">
       <button class="btn btn-outline-success my-2 my-sm-0 search-btn" type="submit">Buscar</button>
+        -->
     </form>
   </div>
 </nav>

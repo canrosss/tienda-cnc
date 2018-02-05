@@ -37,7 +37,9 @@
        <% end %>
     </table>
             <p>
-              <%= link_to '[ Dar de alta nuevo productso ]', new_product_path %>
+              <% if logged_in? %>
+                  <%= link_to '[ Dar de alta nuevo productso ]', new_product_path %>
+              <% end %>
             </p>
 </div>
 

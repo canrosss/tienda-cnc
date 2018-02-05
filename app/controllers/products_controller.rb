@@ -1,4 +1,7 @@
 class ProductsController < ApplicationController
+
+  before_action :set_product, only: [:edit, :update, :destroy, :create]
+
   def index
     @product = Product.all
   end
@@ -12,21 +15,18 @@ class ProductsController < ApplicationController
   end
 
   def edit
-    @product = Product.find(params[:id])
   end
 
   def destroy
-    @product = Product.find(params[:id])
     @product.destroy
     flash[:notice] = "El producto fue actualizado"
     redirect_to product_path
   end
 
   def update
-    @product = Product.find(params[:id])
     if @product.update(product_params)
       flash[:notice] = "El producto fue actualizado"
-      redirect_to product_path(@product)
+      redirect_to product_path(@product) if logged_in?
     end
   end
 
@@ -45,6 +45,10 @@ class ProductsController < ApplicationController
   private
     def product_params
       params.require(:product).permit(:name, :summary, :description, :body, :image1, :image2, :image3, :image4)
+    end
+
+    def set_product
+      @product = Product.find(params[:id])
     end
 
 end

@@ -58,8 +58,9 @@
 </div>
 
 
-
-<div class="center">
- <%= link_to "[ Editar este producto ]", edit_product_path(@product) %>
- <%= link_to "[ Volver al listado de productos ]", products_path %>
-</div>
+<%if logged_in? %>
+    <div class="center">
+     <%= link_to "[ Editar este producto ]", edit_product_path(@product) %>
+     <%= link_to "[ Volver al listado de productos ]", products_path %>
+    </div>
+<% end %>
