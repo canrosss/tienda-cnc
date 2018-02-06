@@ -1,45 +1,37 @@
 
 <div class="container marketing">
-    <h2>Lista de productos</h2>
+ <div class="album text-muted">
+            <div class="row">
+                     <% @product.each do |product| %>
+                            <div class="card">
+                                <p class="card-text-title"><%= product.name %></p>
+                                <%= image_tag(product.image1, size: "356x330", alt: product.name ) %>
+                                <p class="card-text">
+                                  <%= product.summary %>
+                                  <%= link_to 'Ver más', product_path(product) %>
+                                </p>
+                                <% if logged_in? %>
+                                    <p class="card-text">
+                                      <%= link_to '[ Editar ] ', edit_product_path(product)%>
+                                      <%= link_to '[ Ver más ] ', product_path(product) %>
+                                      <%= link_to '[ Borrar ]', product_path(product), method: :delete,data:{confirm:"¿Estas seguro?"}%>
+                                    </p>
+                                <% end %>
+                            </div>
+                     <% end %>
+             </div>
 
-    <table class="table table-striped">
-      <thead>
-          <tr>
-            <th>Nombre</th>
-            <th>Descripción</th>
-          </tr>
-      </thead>
-      <% @product.each do |product| %>
-        <tr>
-          <td>
-            <p>
-               <%= product.name %>
+             <p>
+                <% if logged_in? %>
+                   <%= link_to '[ Dar de alta nuevo productos ]', new_product_path %>
+                <% end %>
              </p>
-           </td>
-         <td>
-           <p>
-              <%= link_to 'Editar', edit_product_path(product)%>
-            </p>
-          </td>
-          <td>
-            <p>
-              <%= link_to 'Ver', product_path(product)%>
-            </p>
-          </td>
-          <td>
-            <p>
-              <%= link_to 'Borrar', product_path(product), method: :delete,data:{confirm:"¿Estas seguro?"}%>
 
-            </p>
-          </td>
+      </div>
 
-        </tr>
-       <% end %>
-    </table>
-            <p>
-              <% if logged_in? %>
-                  <%= link_to '[ Dar de alta nuevo productos ]', new_product_path %>
-              <% end %>
-            </p>
-</div>
+
+    <hr class="featurette-divider">
+
+      <!-- /END THE FEATURETTES -->
+
 
