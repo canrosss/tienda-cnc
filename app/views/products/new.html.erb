@@ -1,82 +1,65 @@
-<div class="form-container">
-     <h1>Editando un producto existente</h1>
 
-     <%= form_for(@product, :html => {class: 'form-horizontal', role:"form"}) do |f|  %>
-      <div class="form-group">
-         <%= f.label :name , class: "col-sm-2 control-label"%> </br>
-         <div class="col-sm-8">
-              <%= f.text_field :name, class: "form-control"%> </br>
-         </div>
-      </div>
+<div class="container">
 
-      <div class="form-group">
-         <%= f.label :summary, class: "col-sm-2 control-label" %> </br>
-         <div class="col-sm-8">
-              <%= f.text_area :summary, class: "form-control"%> </br>
-         </div>
-      </div>
+<h1>Añadir un producto</h1>
+      <% if @product.errors.any? %>
+        <h2>Los siguientes errores impiden la creación del producto</h2>
+        <ul>
+          <% @product.errors.full_messages.each do |msg| %>
+            <li>
+              <%= msg %>
+            </li>
+          <% end %>
+        </ul>
+      <% end %>
 
-      <div class="form-group">
-         <%= f.label :description, class: "col-sm-2 control-label" %> </br>
-         <div class="col-sm-8">
-              <%= f.text_area :description, class: "form-control"%> </br>
-         </div>
-      </div>
+        <%= form_for @product, :html => { role: "form"}  do |f| %>
+        <p>
+          <%= f.label :name, :class=>"sr-only" %> </br>
+          <%= f.text_field :name, placeholder: "Nombre del producto", :class=>"form-control" %> </br>
+        </p>
 
-      <div class="form-group">
-         <%= f.label :body, class: "col-sm-2 control-label" %> </br>
-         <div class="col-sm-8">
-              <%= f.text_area :body, class: "form-control" %> </br>
-         </div>
-      </div>
+        <p>
+          <%= f.label :summary, :class=>"sr-only" %> </br>
+          <%= f.text_area :summary, placeholder: "Resumen del producto", :class=>"form-control" %> </br>
+        </p>
 
-      <div class="form-group">
-         <%= f.label :image1, class: "col-sm-2 control-label" %> </br>
-         <div class="col-sm-8">
-              <%= f.text_field :image1, class: "form-control" %> </br>
-         </div>
-      </div>
+        <p>
+          <%= f.label :description, :class=>"sr-only" %> </br>
+          <%= f.text_area :description, placeholder: "Introduce la descripción del producto", :class=>"form-control" %> </br>
+        </p>
 
-      <div class="form-group">
-         <%= f.label :image2, class: "col-sm-2 control-label" %> </br>
-         <div class="col-sm-8">
-              <%= f.text_field :image2 , class: "form-control"%> </br>
-         </div>
-      </div>
+        <p>
+          <%= f.label :body, :class=>"sr-only" %> </br>
+        <%= f.text_area(:body, placeholder: "Introduce la descripción completa del producto", :size=>"90",  :class=>"form-control") %> </br>
+        </p>
 
-      <div class="form-group">
-         <%= f.label :image3, class: "col-sm-2 control-label" %> </br>
-         <div class="col-sm-8">
-              <%= f.text_field :image3, class: "form-control" %> </br>
-         </div>
-      </div>
+        <p>
+          <%= f.label :image1, :class=>"sr-only" %> </br>
+        <%= f.text_field :image1, placeholder: "Nombre de la imagen 1", :class=>"form-control" %> </br>
+        </p>
 
-      <div class="form-group">
-         <%= f.label :image4, class: "col-sm-2 control-label" %> </br>
-         <div class="col-sm-8">
-              <%= f.text_field :image4, class: "form-control" %> </br>
-         </div>
-      </div>
+        <p>
+          <%= f.label :image2, :class=>"sr-only" %> </br>
+          <%= f.text_field :image2, placeholder: "Nombre de la imagen 2", :class=>"form-control"  %> </br>
+        </p>
 
-      <div class="form-group">
-        <div class="col-sm-offset-2 col-sm-8">
-          <%= f.submit(@product.new_record? ? "Añadir producto" : "Actualizar producto", class: 'btn btn-primary btn-lg') %>
-        </div>
-      </div>
-    <% end %>
+        <p>
+          <%= f.label :image3, :class=>"sr-only" %> </br>
+          <%= f.text_field :image3, placeholder: "Nombre de la imagen 3", :class=>"form-control" %> </br>
+        </p>
 
-</div>
+        <p>
+          <%= f.label :image4, :class=>"sr-only" %> </br>
+          <%= f.text_field :image4, placeholder: "Nombre de la imagen 4", :class=>"form-control"%> </br>
+        </p>
 
-     <% if @product.errors.any? %>
-      <h2>Los siguientes errores impiden la creación del producto</h2>
-      <ul>
-        <% @product.errors.full_messages.each do |msg| %>
-          <li>
-            <%= msg %>
-          </li>
-        <% end %>
-      </ul>
-    <% end %>
-
-
+            <div class="form-group">
+              <div class="col-sm-offset-2 col-sm-8 center">
+                <%= f.submit(@product.new_record? ? "Añadir producto" : "Actualizar producto", class: 'btn btn-primary btn-lg') %>
+              </div>
+            </div>
+      <% end %>
+           <hr class="featurette-divider">
+           <!-- /END THE FEATURETTES -->
 
