@@ -1,1 +1,35 @@
-<h1>Añadir una nueva categoria</h1>
+
+<div class="container">
+
+<h1>Añadir una categoria</h1>
+      <% if @category.errors.any? %>
+        <h2>Los siguientes errores impiden la creación del categoryo</h2>
+        <ul>
+          <% @category.errors.full_messages.each do |msg| %>
+            <li>
+              <%= msg %>
+            </li>
+          <% end %>
+        </ul>
+      <% end %>
+
+        <%= form_for @category, :html => { role: "form"}  do |f| %>
+        <p>
+          <%= f.label :name, :class=>"sr-only" %> </br>
+          <%= f.text_field :name, placeholder: "Nombre de la categoria", :class=>"form-control" %> </br>
+        </p>
+
+        <p>
+          <%= f.label :description, :class=>"sr-only" %> </br>
+          <%= f.text_area :description, placeholder: "Introduce la descripción del categoria", :class=>"form-control" %> </br>
+        </p>
+
+            <div class="form-group">
+              <div class="col-sm-offset-2 col-sm-8 center">
+                <%= f.submit(@category.new_record? ? "Añadir Categoria" : "Actualizar Categoria", class: 'btn btn-primary btn-lg') %>
+              </div>
+            </div>
+      <% end %>
+           <hr class="featurette-divider">
+           <!-- /END THE FEATURETTES -->
+
