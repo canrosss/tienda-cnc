@@ -1,8 +1,37 @@
-<h1>Categorias</h1>
-<% @category.each do |category| %>
-  <ul>
-    <li><%= link_to "#{category.name}", category_path(category)%></li>
-    <li><%= category.description %></li>
-  </ul>
 
-<% end %>
+<div class="container marketing">
+ <div class="album text-muted">
+            <div class="row">
+                     <% @category.each do |category| %>
+                            <div class="card">
+                                <p class="card-text-title"><%= category.name %></p>
+                                <%= image_tag(category.icon, size: "356x330", alt: category.name ) %>
+                                <p class="card-text">
+                                  <%= category.description %>
+                                  <%= link_to 'Ver más', category_path(category) %>
+                                </p>
+                                <% if logged_in? %>
+                                    <p class="card-text">
+                                      <%= link_to '[ Editar ] ', edit_category_path(category) %>
+                                      <%= link_to '[ Ver más ] ', category_path(category) %>
+                                      <%= link_to '[ Borrar ]', category_path(category), method: :delete,data:{confirm:"¿Estas seguro?"}%>
+                                    </p>
+                                <% end %>
+                            </div>
+                     <% end %>
+             </div>
+
+             <p>
+                <% if logged_in? %>
+                   <%= link_to '[ Dar de alta una nueva categoria ]', new_category_path %>
+                <% end %>
+             </p>
+
+      </div>
+
+
+    <hr class="featurette-divider">
+
+      <!-- /END THE FEATURETTES -->
+
+
