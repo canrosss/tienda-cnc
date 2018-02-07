@@ -1,0 +1,3 @@
+ rails generate migration remove_category_id_from_products
+remove_column :table_name, :column_name
+https://code.i-harness.com/es/q/2b32d3
